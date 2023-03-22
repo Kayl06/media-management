@@ -1,11 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchUsers } from "../thunk/fetchUsers"
+import { addUser } from "../thunk/addUser";
+import { deleteUser } from "../thunk/deleteUser"
 
 const usersSlice = createSlice({
     name: 'users',
     initialState: {
         data: [],
         isLoading: false,
+        isCreating: false,
         error: null
     },
     extraReducers(builder) {
@@ -27,6 +30,37 @@ const usersSlice = createSlice({
             state.isLoading = false;
 
             state.error = action.error; // automtically get the error message
+        });
+
+
+        builder.addCase(addUser.pending, (state, action) => {
+            state.isCreating = true;
+        });
+
+        builder.addCase(addUser.fulfilled, (state, action) => {
+            state.isCreating = false
+
+            state.data.push(action.payload);
+        });
+
+        builder.addCase(addUser.rejected, (state, action) => {
+            state.isCreating = false
+
+            state.error = action.error;
+        });
+
+        builder.addCase(deleteUser.pending, (state, action) => {
+            state.isLoading = true;
+        });
+
+        builder.addCase(deleteUser.fulfilled, (state, action) => {
+            state.isLoading = false;
+        });
+
+        builder.addCase(deleteUser.rejected, (state, action) => {
+            state.isLoading = false;
+
+            state.error = action.error;
         });
     }
 });

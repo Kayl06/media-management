@@ -8,3 +8,5 @@ export const store = configureStore({
 });
 
 export * from "./thunk/fetchUsers"; // get everything exported from fetchUsers
+export * from "./thunk/addUser"; // create a new user
+export * from "./thunk/deleteUser"; // delete
