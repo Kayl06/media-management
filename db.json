@@ -1,8 +1,18 @@
 {
-  "users": [{
-    "id": 1,
-    "name": "John"
-  }],
+  "users": [
+    {
+      "name": "Miss Patrick Johnston",
+      "id": 1
+    },
+    {
+      "name": "Miss Julia Marks",
+      "id": 2
+    },
+    {
+      "name": "Merle Glover",
+      "id": 3
+    }
+  ],
   "albums": [],
   "photos": []
 }

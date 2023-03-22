@@ -1,34 +1,53 @@
-import { useEffect } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers, addUser, deleteUser} from "../store";
-import { FaTimesCircle } from "react-icons/fa"
+import { fetchUsers, addUser, deleteUser } from "../store";
+import useThunk from "../hooks/use-thunk";
+import { FaTimesCircle } from "react-icons/fa";
 import Button from "./Button";
 import Skeleton from "./Skeleton";
 
 function UsersList() {
+  const [doFetchUsers, isLoadingUsers, loadingUsersError] =
+    useThunk(fetchUsers);
+
+  const [doCreateUser, isCreatingUser, creatingUserLoader] = useThunk(addUser);
+
   const dispatch = useDispatch();
 
-  const { isLoading, error, data } = useSelector((state) => {
+  const { data } = useSelector((state) => {
     return state.users;
   });
 
   useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
+    doFetchUsers();
+  }, [doFetchUsers]);
 
   const handleUserAdd = () => {
-    dispatch(addUser());
+    doCreateUser();
+
+    // dispatch.then() chain will output either success or error
+    // dispatch.unwrap().then() will catch all success
+    // dispatch.unwrap().catch() will catch all error
+    // dispatch.unwrap().finally() will catch either error or success
+
+    // setIsCreatingUser(true);
+    // dispatch(addUser())
+    //   .unwrap()
+    //   .catch((err) => setCreateUserLoader(err))
+    //   .finally(() => {
+    //     setIsCreatingUser(false);
+    //   });
   };
 
   const handleUserDelete = (userId) => {
     dispatch(deleteUser(userId));
   };
 
-  if (isLoading) {
+  if (isLoadingUsers) {
     return <Skeleton times={6} className="h-10 w-full" />;
   }
 
-  if (error) {
+  if (loadingUsersError) {
     return <div>Error fetching data...</div>;
   }
 
@@ -38,7 +57,10 @@ function UsersList() {
         <div className="flex p-2 justify-between items-center cursor-pointer">
           {user.name}
 
-          <Button className="border border-0" onClick={() => handleUserDelete(user.id)}>
+          <Button
+            className="border border-0"
+            onClick={() => handleUserDelete(user.id)}
+          >
             <FaTimesCircle />
           </Button>
         </div>
@@ -51,12 +73,18 @@ function UsersList() {
       <div className="flex justify-between flex-row m-3">
         <h1 className="m-2 text-xl">Users</h1>
 
-        <Button secondary onClick={handleUserAdd}>
-          + Add User
-        </Button>
+        {isCreatingUser ? (
+          "Creating User..."
+        ) : (
+          <Button secondary onClick={handleUserAdd}>
+            + Add User
+          </Button>
+        )}
+
+        {creatingUserLoader && "Error creating user"}
       </div>
 
-      {renderedUsers || ""}
+      {renderedUsers}
     </div>
   );
 }
