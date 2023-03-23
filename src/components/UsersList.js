@@ -23,8 +23,6 @@ function UsersList() {
   }, [doFetchUsers]);
 
   const handleUserAdd = () => {
-    doCreateUser();
-
     // dispatch.then() chain will output either success or error
     // dispatch.unwrap().then() will catch all success
     // dispatch.unwrap().catch() will catch all error
@@ -37,6 +35,8 @@ function UsersList() {
     //   .finally(() => {
     //     setIsCreatingUser(false);
     //   });
+
+    doCreateUser();
   };
 
   const handleUserDelete = (userId) => {
@@ -73,13 +73,9 @@ function UsersList() {
       <div className="flex justify-between flex-row m-3">
         <h1 className="m-2 text-xl">Users</h1>
 
-        {isCreatingUser ? (
-          "Creating User..."
-        ) : (
-          <Button secondary onClick={handleUserAdd}>
-            + Add User
-          </Button>
-        )}
+        <Button loading={isCreatingUser} secondary onClick={handleUserAdd}>
+          + Add User
+        </Button>
 
         {creatingUserLoader && "Error creating user"}
       </div>
