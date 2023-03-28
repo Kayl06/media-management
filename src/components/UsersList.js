@@ -4,7 +4,7 @@ import { fetchUsers, addUser, deleteUser } from "../store";
 import useThunk from "../hooks/use-thunk";
 import Button from "./Button";
 import Skeleton from "./Skeleton";
-import UserListItem from "./UserListitem";
+import UserListItem from "./UserListItem";
 
 function UsersList() {
   const [doFetchUsers, isLoadingUsers, loadingUsersError] =
@@ -37,10 +37,6 @@ function UsersList() {
     //   });
 
     doCreateUser();
-  };
-
-  const handleUserDelete = (userId) => {
-    dispatch(deleteUser(userId));
   };
 
   if (isLoadingUsers) {
