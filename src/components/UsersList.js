@@ -1,10 +1,10 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers, addUser, deleteUser } from "../store";
 import useThunk from "../hooks/use-thunk";
-import { FaTimesCircle } from "react-icons/fa";
 import Button from "./Button";
 import Skeleton from "./Skeleton";
+import UserListItem from "./UserListitem";
 
 function UsersList() {
   const [doFetchUsers, isLoadingUsers, loadingUsersError] =
@@ -52,20 +52,7 @@ function UsersList() {
   }
 
   const renderedUsers = data.map((user, index) => {
-    return (
-      <div key={index} className="mb-2 border rounded">
-        <div className="flex p-2 justify-between items-center cursor-pointer">
-          {user.name}
-
-          <Button
-            className="border border-0"
-            onClick={() => handleUserDelete(user.id)}
-          >
-            <FaTimesCircle />
-          </Button>
-        </div>
-      </div>
-    );
+    return <UserListItem key={index} user={user} />;
   });
 
   return (
