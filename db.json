@@ -9,6 +9,12 @@
       "id": 2
     }
   ],
-  "albums": [],
+  "albums": [
+    {
+      "id": 10,
+      "title": "Test Ttitle",
+      "userId": 1
+    }
+  ],
   "photos": []
 }
