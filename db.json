@@ -1,20 +1,12 @@
 {
   "users": [
     {
-      "name": "Miss Patrick Johnston",
+      "name": "Ms. Ida Windler",
       "id": 1
     },
     {
-      "name": "Miss Julia Marks",
+      "name": "Ms. Mitchell Buckridge",
       "id": 2
-    },
-    {
-      "name": "Merle Glover",
-      "id": 3
-    },
-    {
-      "name": "Delores Klocko",
-      "id": 4
     }
   ],
   "albums": [],

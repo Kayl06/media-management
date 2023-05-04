@@ -1,18 +1,16 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers, addUser, deleteUser } from "../store";
+import { useSelector } from "react-redux";
+import { fetchUsers, addUser } from "../store";
 import useThunk from "../hooks/use-thunk";
 import Button from "./Button";
 import Skeleton from "./Skeleton";
-import UserListItem from "./UserListItem";
+import UserListItem from "./UsersListItem";
 
 function UsersList() {
   const [doFetchUsers, isLoadingUsers, loadingUsersError] =
     useThunk(fetchUsers);
 
   const [doCreateUser, isCreatingUser, creatingUserLoader] = useThunk(addUser);
-
-  const dispatch = useDispatch();
 
   const { data } = useSelector((state) => {
     return state.users;
@@ -56,7 +54,7 @@ function UsersList() {
       <div className="flex justify-between flex-row m-3">
         <h1 className="m-2 text-xl">Users</h1>
 
-        <Button loading={isCreatingUser} secondary onClick={handleUserAdd}>
+        <Button loading={isCreatingUser} secondary onClick={handleUserAdd} className="uppercase text-[13px] tracking-wider rounded py-5">
           + Add User
         </Button>
 
