@@ -7,8 +7,18 @@
     {
       "name": "Ms. Mitchell Buckridge",
       "id": 2
+    },
+    {
+      "name": "Dr. Mandy Stroman V",
+      "id": 3
     }
   ],
-  "albums": [],
+  "albums": [
+    {
+      "id": 1,
+      "title": "Hiking Album",
+      "userId": 1
+    }
+  ],
   "photos": []
 }
