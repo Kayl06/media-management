@@ -8,7 +8,7 @@ function ExpandablePanel({ header, children }) {
     setExpanded(!expanded);
   };
   return (
-    <div className="mb-2 border rounded">
+    <div className="mb-2 border rounded ">
       <div className="flex p-2 justify-between items-center">
         <div className="flex gap-2 items-center justify-between">{header}</div>
 

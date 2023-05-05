@@ -18,4 +18,4 @@ setupListeners(store.dispatch);
 export * from "./thunk/fetchUsers"; // get everything exported from fetchUsers
 export * from "./thunk/addUser"; // create a new user
 export * from "./thunk/deleteUser"; // delete
-export { useFetchAlbumsQuery } from "./apis/albumsApi"
+export { useFetchAlbumsQuery, useCreateAlbumMutation } from "./apis/albumsApi"

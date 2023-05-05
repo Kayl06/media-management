@@ -28,18 +28,7 @@ function UserListItem({ user }) {
 
   return (
     <ExpandablePanel header={header}>
-      <div className="flex flex-col">
-        <div className="flex ml-auto">
-          <Button
-            className="rounded-sm py-4 uppercase text-[13px] tracking-wider"
-            onClick={() => alert(`should be add a new album`)}
-          >
-            + Add album
-          </Button>
-        </div>
-
-        <AlbumsLists user={user} />
-      </div>
+      <AlbumsLists user={user} />
     </ExpandablePanel>
   );
 }

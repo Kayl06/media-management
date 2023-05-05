@@ -11,13 +11,32 @@
     {
       "name": "Dr. Mandy Stroman V",
       "id": 3
+    },
+    {
+      "name": "Wilson Kiehn",
+      "id": 4
     }
   ],
   "albums": [
     {
-      "id": 1,
-      "title": "Hiking Album",
-      "userId": 1
+      "userId": 1,
+      "title": "Fantastic Fresh Hat",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "title": "Bespoke Cotton Mouse",
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "title": "Fantastic Wooden Chair",
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "title": "Oriental Steel Mouse",
+      "id": 4
     }
   ],
   "photos": []
