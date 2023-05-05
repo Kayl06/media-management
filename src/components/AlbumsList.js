@@ -10,13 +10,11 @@ function AlbumsLists({ user }) {
 
   const handleCreateAlbum = () => {
     createAlbum(user);
-
-    console.log(results);
   };
 
   let content;
   if (isLoading) {
-    content = <Skeleton times={3} />;
+    content = <Skeleton times={3} className="h-10 w-full" />;
   } else if (error) {
     content = <div>Error loading albums</div>;
   } else {
@@ -44,6 +42,7 @@ function AlbumsLists({ user }) {
           Albums by - {user.name}
         </div>
         <Button
+          loading={results.isLoading}
           className="rounded-sm py-4 uppercase text-[13px] tracking-wider"
           onClick={handleCreateAlbum}
         >

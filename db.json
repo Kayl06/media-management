@@ -37,6 +37,16 @@
       "userId": 2,
       "title": "Oriental Steel Mouse",
       "id": 4
+    },
+    {
+      "userId": 1,
+      "title": "Refined Frozen Car",
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "title": "Sleek Rubber Cheese",
+      "id": 6
     }
   ],
   "photos": []
