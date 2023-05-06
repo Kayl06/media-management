@@ -1,11 +1,10 @@
 import { useFetchAlbumsQuery, useCreateAlbumMutation } from "../store";
-import ExpandablePanel from "./ExpandablePanel";
 import Skeleton from "./Skeleton";
+import AlbumsListItem from "./AlbumsListItem";
 import Button from "./Button";
-import { FiFolder } from "react-icons/fi";
 
 function AlbumsLists({ user }) {
-  const { data, error, isLoading } = useFetchAlbumsQuery(user);
+  const { data, error, isFetching } = useFetchAlbumsQuery(user);
   const [createAlbum, results] = useCreateAlbumMutation();
 
   const handleCreateAlbum = () => {
@@ -13,25 +12,13 @@ function AlbumsLists({ user }) {
   };
 
   let content;
-  if (isLoading) {
+  if (isFetching) {
     content = <Skeleton times={3} className="h-10 w-full" />;
   } else if (error) {
     content = <div>Error loading albums</div>;
   } else {
     content = data.map((album, index) => {
-      const header = (
-        <>
-          <div className="flex gap-2 items-center text-sm">
-            <FiFolder />
-            <h1>{album.title}</h1>
-          </div>
-        </>
-      );
-      return (
-        <ExpandablePanel header={header} key={album.id}>
-          <div className="">List of photos in the album</div>
-        </ExpandablePanel>
-      );
+      return <AlbumsListItem key={album.id} album={album} />;
     });
   }
 
