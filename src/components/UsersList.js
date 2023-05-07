@@ -37,31 +37,37 @@ function UsersList() {
     doCreateUser();
   };
 
+  let content;
   if (isLoadingUsers) {
-    return <Skeleton times={6} className="h-10 w-full" />;
-  }
+    content = <Skeleton times={6} className="h-10 w-full" />;
+  } else if (loadingUsersError) {
+    content = <div>Error fetching data...</div>;
+  } else {
+    const renderedUsers = data.map((user, index) => {
+      return <UserListItem key={index} user={user} />;
+    });
 
-  if (loadingUsersError) {
-    return <div>Error fetching data...</div>;
+    content = renderedUsers;
   }
-
-  const renderedUsers = data.map((user, index) => {
-    return <UserListItem key={index} user={user} />;
-  });
 
   return (
     <div>
       <div className="flex justify-between flex-row m-3">
         <h1 className="m-2 text-xl">Users</h1>
 
-        <Button loading={isCreatingUser} secondary onClick={handleUserAdd} className="uppercase text-[13px] tracking-wider rounded py-5">
+        <Button
+          loading={isCreatingUser}
+          secondary
+          onClick={handleUserAdd}
+          className="uppercase text-[13px] tracking-wider rounded py-5"
+        >
           + Add User
         </Button>
 
         {creatingUserLoader && "Error creating user"}
       </div>
 
-      {renderedUsers}
+      <div className="mt-5">{content}</div>
     </div>
   );
 }

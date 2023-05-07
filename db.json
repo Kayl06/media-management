@@ -7,14 +7,43 @@
     {
       "name": "Ms. Mitchell Buckridge",
       "id": 2
+    },
+    {
+      "name": "Dr. Mandy Stroman V",
+      "id": 3
+    },
+    {
+      "name": "Wilson Kiehn",
+      "id": 4
     }
   ],
   "albums": [
     {
-      "id": 10,
-      "title": "Test Ttitle",
-      "userId": 1
+      "userId": 2,
+      "title": "Fantastic Wooden Chair",
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "title": "Sleek Rubber Cheese",
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "title": "Incredible Bronze Table",
+      "id": 7
     }
   ],
-  "photos": []
+  "photos": [
+    {
+      "id": 1,
+      "url": "https://images.unsplash.com/photo-1629185752152-fe65698ddee4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzh8fGhpa2luZ3xlbnwwfHwwfHw%3D&w=1000&q=80",
+      "albumId": 3
+    },
+    {
+      "albumId": 6,
+      "url": "https://loremflickr.com/150/150/abstract?lock=56084",
+      "id": 2
+    }
+  ]
 }
