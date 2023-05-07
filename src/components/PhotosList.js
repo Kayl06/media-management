@@ -1,11 +1,11 @@
-import { useFetchPhotosQuery, useCreatePhotoMutation } from "../store";
 import Skeleton from "./Skeleton";
-import PhotosListItem from "./PhotosListItem";
 import Button from "./Button";
+import { useFetchPhotosQuery, useCreatePhotoMutation } from "../store";
+import PhotosListItem from "./PhotosListItem";
 
 function PhotosList({ album }) {
   const { data, error, isFetching } = useFetchPhotosQuery(album);
-  const [ createPhoto, results ] = useCreatePhotoMutation();
+  const [createPhoto, createPhotoResults] = useCreatePhotoMutation();
 
   const handleCreatePhoto = () => {
     createPhoto(album);
@@ -13,14 +13,15 @@ function PhotosList({ album }) {
 
   let content;
   if (isFetching) {
-    content = <Skeleton times={6} className="h-10 w-full" />;
+    content = <Skeleton times={6} className="h-8 w-full" />;
   } else if (error) {
-    content = <div>Error loading albums</div>;
+    content = <div>Error fetching photos</div>;
   } else {
     content = data.map((photo, index) => {
       return <PhotosListItem key={photo.id} photo={photo} />;
     });
   }
+
   return (
     <>
       <div className="mb-10 flex justify-between">
@@ -28,7 +29,7 @@ function PhotosList({ album }) {
           Photos in Album - {album.title}
         </div>
         <Button
-          loading={results.isLoading}
+          loading={createPhotoResults.isLoading}
           className="rounded-sm py-4 uppercase text-[13px] tracking-wider"
           onClick={handleCreatePhoto}
         >
@@ -36,7 +37,7 @@ function PhotosList({ album }) {
         </Button>
       </div>
 
-      <div className="grid lg:grid-cols-6 gap-4 grid-cols-4">
+      <div className="gap-2 flex-wrap flex justify-center">
         {content}
       </div>
     </>

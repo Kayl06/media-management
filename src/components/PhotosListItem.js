@@ -11,12 +11,14 @@ function PhotosListItem({ photo }) {
   }
 
   return (
-    <div className="relative">
-      <img src={photo.url} />
+    <div className="relative m-2 cursor-pointer">
+      <img src={photo.url} className="" alt="Random pic" />
 
-      <Button className="mt-2 rounded" onClick={handleRemovePhoto} loading={results.isLoading}>
-        <GoTrashcan />
-      </Button>
+      <div className="absolute inset-0 flex items-center justify-center hover:bg-gray-200 opacity-0 hover:opacity-80">
+        <Button className="rounded text-3xl text-gray-900" onClick={handleRemovePhoto} loading={results.isLoading}>
+          <GoTrashcan />
+        </Button>
+      </div>
     </div>
   );
 }
