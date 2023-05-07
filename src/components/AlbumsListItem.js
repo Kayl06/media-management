@@ -21,7 +21,7 @@ function AlbumsListItem({ album }) {
         >
           <GoTrashcan />
         </Button>
-        <h1>{album.title} {album.id}</h1>
+        <h1>{album.title}</h1>
       </div>
     </>
   );

@@ -1,12 +1,11 @@
-import { useFetchPhotosQuery } from "../store";
+import { useFetchPhotosQuery, useCreatePhotoMutation } from "../store";
 import Skeleton from "./Skeleton";
 import PhotosListItem from "./PhotosListItem";
 import Button from "./Button";
-import { useCreatePhotoMutation } from "../store/apis/photosApi";
 
 function PhotosList({ album }) {
   const { data, error, isFetching } = useFetchPhotosQuery(album);
-  const [createPhoto, results] = useCreatePhotoMutation();
+  const [ createPhoto, results ] = useCreatePhotoMutation();
 
   const handleCreatePhoto = () => {
     createPhoto(album);
@@ -14,7 +13,7 @@ function PhotosList({ album }) {
 
   let content;
   if (isFetching) {
-    content = <Skeleton times={3} className="h-10 w-full" />;
+    content = <Skeleton times={6} className="h-10 w-full" />;
   } else if (error) {
     content = <div>Error loading albums</div>;
   } else {
@@ -24,7 +23,10 @@ function PhotosList({ album }) {
   }
   return (
     <>
-      <div className="mb-10">
+      <div className="mb-10 flex justify-between">
+        <div className="font-bold text-[14px] uppercase tracking-wide">
+          Photos in Album - {album.title}
+        </div>
         <Button
           loading={results.isLoading}
           className="rounded-sm py-4 uppercase text-[13px] tracking-wider"
@@ -33,7 +35,10 @@ function PhotosList({ album }) {
           + Add Photo
         </Button>
       </div>
-      {content}
+
+      <div className="grid lg:grid-cols-6 gap-4 grid-cols-4">
+        {content}
+      </div>
     </>
   );
 }
