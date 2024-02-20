@@ -53,7 +53,7 @@ function UsersList() {
   return (
     <div>
       <div className="flex justify-between flex-row m-3">
-        <h1 className="m-2 text-xl">Users</h1>
+        <h1 className="m-2 text-md font-bold uppercase tracking-wider">Users</h1>
 
         <Button
           loading={isCreatingUser}

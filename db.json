@@ -1,114 +1,61 @@
 {
   "users": [
     {
-      "name": "Ms. Ida Windler",
+      "name": "Blanche Botsford",
       "id": 1
     },
     {
-      "name": "Ms. Mitchell Buckridge",
+      "name": "Miss Darin Senger",
       "id": 2
-    },
-    {
-      "name": "Dr. Mandy Stroman V",
-      "id": 3
-    },
-    {
-      "name": "Wilson Kiehn",
-      "id": 4
     }
   ],
   "albums": [
     {
-      "userId": 2,
-      "title": "Fantastic Wooden Chair",
-      "id": 3
-    },
-    {
       "userId": 1,
-      "title": "Incredible Bronze Table",
-      "id": 7
+      "title": "Awesome Bronze Bike",
+      "id": 1
     },
     {
       "userId": 2,
-      "title": "Incredible Cotton Bike",
-      "id": 8
-    },
-    {
-      "userId": 1,
-      "title": "Ergonomic Metal Ball",
-      "id": 9
+      "title": "Licensed Steel Chicken",
+      "id": 2
     }
   ],
   "photos": [
     {
-      "id": 1,
-      "url": "https://images.unsplash.com/photo-1629185752152-fe65698ddee4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzh8fGhpa2luZ3xlbnwwfHwwfHw%3D&w=1000&q=80",
-      "albumId": 3
+      "albumId": 1,
+      "url": "https://loremflickr.com/150/150/abstract?lock=30974",
+      "id": 31
     },
     {
-      "albumId": 7,
-      "url": "https://loremflickr.com/150/150/abstract?lock=35200",
-      "id": 7
+      "albumId": 1,
+      "url": "https://loremflickr.com/150/150/abstract?lock=25664",
+      "id": 32
     },
     {
-      "albumId": 7,
-      "url": "https://loremflickr.com/150/150/abstract?lock=57298",
-      "id": 8
+      "albumId": 1,
+      "url": "https://loremflickr.com/150/150/abstract?lock=64843",
+      "id": 33
     },
     {
-      "albumId": 7,
-      "url": "https://loremflickr.com/150/150/abstract?lock=31833",
-      "id": 9
+      "albumId": 1,
+      "url": "https://loremflickr.com/150/150/abstract?lock=15248",
+      "id": 34
     },
     {
-      "albumId": 7,
-      "url": "https://loremflickr.com/150/150/abstract?lock=45318",
-      "id": 12
+      "albumId": 1,
+      "url": "https://loremflickr.com/150/150/abstract?lock=38977",
+      "id": 35
     },
     {
-      "albumId": 8,
-      "url": "https://loremflickr.com/150/150/abstract?lock=3481",
-      "id": 13
+      "albumId": 1,
+      "url": "https://loremflickr.com/150/150/abstract?lock=84733",
+      "id": 37
     },
     {
-      "albumId": 7,
-      "url": "https://loremflickr.com/150/150/abstract?lock=56762",
-      "id": 16
-    },
-    {
-      "albumId": 9,
-      "url": "https://loremflickr.com/150/150/abstract?lock=20994",
-      "id": 19
-    },
-    {
-      "albumId": 9,
-      "url": "https://loremflickr.com/150/150/abstract?lock=95807",
-      "id": 20
-    },
-    {
-      "albumId": 9,
-      "url": "https://loremflickr.com/150/150/abstract?lock=59368",
-      "id": 21
-    },
-    {
-      "albumId": 9,
-      "url": "https://loremflickr.com/150/150/abstract?lock=75810",
-      "id": 22
-    },
-    {
-      "albumId": 9,
-      "url": "https://loremflickr.com/150/150/abstract?lock=91527",
-      "id": 23
-    },
-    {
-      "albumId": 9,
-      "url": "https://loremflickr.com/150/150/abstract?lock=18921",
-      "id": 24
-    },
-    {
-      "albumId": 9,
-      "url": "https://loremflickr.com/150/150/abstract?lock=91333",
-      "id": 25
+      "albumId": 2,
+      "url": "https://loremflickr.com/150/150/abstract?lock=31512",
+      "id": 38
     }
   ]
 }
